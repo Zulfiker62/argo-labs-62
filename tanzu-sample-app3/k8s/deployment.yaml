@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tanzu-sample-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tanzu-sample-app
+  template:
+    metadata:
+      labels:
+        app: tanzu-sample-app
+    spec:
+      containers:
+        - name: tanzu-sample-app
+          image: harbor.lab.maruf.com/app-build/tanzu-sample-app:1.0.1
+          ports:
+            - containerPort: 3000
