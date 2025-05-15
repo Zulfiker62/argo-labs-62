@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: tanzu-sample-app
-          image: harbor.lab.maruf.com/app-build/tanzu-sample-app:1.0.1
+          image: harbor.lab.maruf.com/app-build/tanzu-sample-app:1.0.2
           ports:
             - containerPort: 3000
