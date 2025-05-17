@@ -6,7 +6,7 @@ metadata:
     role: db
     tier: back
   name: db
-  namespace: instavote
+  namespace: argocd
 spec:
   selector:
     role: db
