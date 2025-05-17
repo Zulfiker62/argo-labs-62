@@ -6,7 +6,7 @@ metadata:
     role: redis
     tier: back
   name: redis
-  namespace: instavote
+  namespace: argocd
 spec:
   selector:
     app: redis
