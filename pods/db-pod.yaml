@@ -5,19 +5,25 @@ metadata:
   labels:
     app: postgres
     role: database
-    tier: back
+    tier: backend
 spec:
   containers:
-    - name: db
+    - name: postgres
       image: postgres:9.4
       ports:
         - containerPort: 5432
+      env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: postgres-password
       volumeMounts:
-      - name: db-data
-        mountPath: /var/lib/postgresql/data
+        - name: db-data
+          mountPath: /var/lib/postgresql/data
   volumes:
-  - name: db-data
-    hostPath:
-      path: /var/lib/pgdata
-      type: DirectoryOrCreate
+    - name: db-data
+      hostPath:
+        path: /var/lib/pgdata
+        type: DirectoryOrCreate
 
